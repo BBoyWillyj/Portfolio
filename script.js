@@ -81,7 +81,7 @@
   const statsObserver = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
       animateCount(document.getElementById('stat-exp'), 2, '+');
-      animateCount(document.getElementById('stat-proj'), 15, '+');
+      animateCount(document.getElementById('stat-proj'), 10, '+');
       animateCount(document.getElementById('stat-clients'), 5, '+');
       statsObserver.unobserve(entries[0].target);
     }
@@ -113,20 +113,58 @@
   if (firstFilter) { firstFilter.style.background = '#1A1A1A'; firstFilter.style.color = '#F5F0E8'; firstFilter.style.borderColor = '#1A1A1A'; }
 
   // Contact form
-  function submitForm() {
-    const btn = event.target;
-    btn.textContent = 'Sending...';
-    btn.style.opacity = '0.7';
-    setTimeout(() => {
-      btn.textContent = '✓ Sent!';
-      btn.style.background = '#16a34a';
-      document.getElementById('form-success').classList.remove('hidden');
-      setTimeout(() => {
-        btn.textContent = 'Send Message →'; btn.style.opacity = ''; btn.style.background = '';
-        document.getElementById('form-success').classList.add('hidden');
-      }, 3000);
-    }, 1200);
-  }
+  // function submitForm() {
+  //   const btn = event.target;
+  //   btn.textContent = 'Sending...';
+  //   btn.style.opacity = '0.7';
+  //   setTimeout(() => {
+  //     btn.textContent = '✓ Sent!';
+  //     btn.style.background = '#16a34a';
+  //     document.getElementById('form-success').classList.remove('hidden');
+  //     setTimeout(() => {
+  //       btn.textContent = 'Send Message →'; btn.style.opacity = ''; btn.style.background = '';
+  //       document.getElementById('form-success').classList.add('hidden');
+  //     }, 3000);
+  //   }, 1200);
+  // }
+  
+  // const form = document.getElementById('form');
+  // const submitBtn = form.querySelector('button[type="submit"]');
+
+  // form.addEventListener('submit', async (e) => {
+  //     e.preventDefault();
+
+  //     const formData = new FormData(form);
+  //     formData.append("access_key", "cb4b05e9-6273-42ed-873c-cfc75c535c18");
+
+  //     const originalText = submitBtn.textContent;
+
+  //     submitBtn.textContent = "Sending...";
+  //     submitBtn.disabled = true;
+
+  //     try {
+  //         const response = await fetch("https://api.web3forms.com/submit", {
+  //             method: "POST",
+  //             body: formData
+  //         });
+
+  //         const data = await response.json();
+
+  //         if (response.ok) {
+  //             alert("Success! Your message has been sent.");
+  //             form.reset();
+  //         } else {
+  //             alert("Error: " + data.message);
+  //         }
+
+  //     } catch (error) {
+  //         alert("Something went wrong. Please try again.");
+  //     } finally {
+  //         submitBtn.textContent = originalText;
+  //         submitBtn.disabled = false;
+  //     }
+  // });
+
 
   // Hero entrance animation
   window.addEventListener('load', () => {
